@@ -221,7 +221,7 @@ audio {
 }
 
 .star {
-    left: 244px;
+    left: 252px;
     top: 10px;
 }
 
@@ -251,4 +251,52 @@ audio {
 .footer {
     border-top: 1px solid #eee;
     margin: 50px 0;
+}
+
+/**
+frog
+ */
+.container-froggy {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 400px;
+}
+
+.hide {
+    display: none;
+}
+
+#jump-fast img {
+    height: 50px;
+    margin-left: 50px;
+    position: relative;
+    animation: jump 1.25s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes jump {
+    0% {
+        top: 0;
+        left: 0;
+    }
+
+    25% {
+        top: 100px;
+        left: 20%;
+    }
+
+    50% {
+        top: 0;
+        left: 40%;
+    }
+
+    75% {
+        top: 100px;
+        left: 60%;
+    }
+
+    100% {
+        top: 0;
+        left: 80%;
+    }
 }

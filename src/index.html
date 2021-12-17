@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Merry Christmas</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="froggy.css">
 </head>
 <body>
 <audio loop autoplay>
@@ -23,8 +24,20 @@
     <p>Have a wonderful Christmas!</p>
 </div>
 <div class="footer christmas">
-    <p> 音乐狂6666 </p>
+    <p onclick="toggleJumping()"> 音乐狂6666 </p>
 </div>
+<div class="container-froggy">
+    <div id="jump-fast" class="hide">
+        <img alt="frog" src="./images/frog1.png"/>
+    </div>
+</div>
+<script>
+    function toggleJumping() {
+        const toggleDivFast = document.getElementById("jump-fast")
+        toggleDivFast.classList.toggle("hide")
+    }
+</script>
 <script src="./main.js"></script>
+
 </body>
 </html>
