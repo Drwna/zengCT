@@ -78,7 +78,7 @@ body {
     -ms-animation: snow 20s linear infinite;
     animation: snow 20s linear infinite;
 
-    background-image: url('../images/snow1.png'), url('../images/snow2.png'), url('../images/snow3.png');
+    background-image: url('images/snow1.png'), url('images/snow2.png'), url('images/snow3.png');
 }
 
 /*--- steal from Ant Design ----*/
@@ -221,7 +221,7 @@ audio {
 }
 
 .star {
-    left: 200px;
+    left: 244px;
     top: 10px;
 }
 
@@ -237,7 +237,7 @@ audio {
 }
 
 .poem {
-    font-size: 24px;
+    font-size: 44px;
 }
 
 .poem,

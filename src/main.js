@@ -1,23 +1,20 @@
 const greeting = [
-    'printf("{0}");',
-    'cout << "{0}" << endl;',
-    'WriteLn("{0}");',
-    'System.out.println( "{0}" );',
-    'print "{0}"',
-    'fmt.Println("{0}");',
-    'echo "{0}"',
-    'say "{0}"',
-    'print("{0}");',
-    '(print "{0}")',
-    'PRINT "{0}"',
-    '<%= "{0}" %>',
-    'System.Console.WriteLine("{0}");',
-    'console.log("{0}");',
-    'document.write("{0}")',
+    '万事顺意，平平安安',
+    '愿你所遇之人皆为良善, 愿你所到之处皆为热土',
+    '祝你不用颠沛流离，也能遇到陪伴',
+    '祝你不用熬过黑夜，已经等到晚安',
+    '愿你一生温暖纯良，不舍爱与自由',
+    '愿有人与你共黄昏，有人问你粥可温',
+    '双子座的家伙',
+    '人间蠢蛋 蠢到可爱',
+    '一两愿你此生多福无病灾',
+    '二两愿你南北虽隔不离散',
+    '三两愿你郎君如意长相欢',
+    '哈哈哈哈'
 ];
 
-const year = new Date().getFullYear() + 1;
-const str = ["Merry Christmas!", "Happy New Year!", "Hello " + year + "!"];
+// const year = new Date().getFullYear() + 1;
+// const str = ["Merry Christmas!", "Happy New Year!", "Hello " + year + "!"];
 
 if (!String.prototype.format) {
     String.prototype.format = function () {
@@ -48,7 +45,7 @@ function createBranch(width, height) {
     const div = document.createElement('div');
     const span = document.createElement('span');
 
-    const s = greeting[getRandom(0, greeting.length - 1)].format(str[getRandom(0, str.length - 1)]);
+    const s = greeting[getRandom(0, greeting.length - 1)];
 
     const text = document.createTextNode(s);
 
@@ -69,9 +66,22 @@ function createBranch(width, height) {
     return div;
 }
 
+function createTrunk(width, height) {
+    const div = document.createElement('div');
 
-const width = 500;
-const height = 600;
+    div.setAttribute("id", "branch");
+
+    div.style.width = width + 'px';
+    div.style.height = height + 'px';
+    //console.log("rgba("+other+","+green+","+other+", 1)");
+    div.style.backgroundColor = "rgb(160,82,45)";
+
+    //div.style.position = "relative";
+    return div;
+}
+
+const width = 600;
+const height = 700;
 const tree = document.getElementById("tree");
 tree.style.width = width + 'px';
 tree.style.height = height + 'px';
@@ -91,6 +101,9 @@ for (let i = 0; i < 300; i++) {
     //console.log(x, y, rx, ry, rz, elementWidth,  elementHeight)
     const div = createBranch(elementWidth, elementHeight);
 
-    transform(div, 'translate3d(' + x + 'px, ' + y + 'px, 0px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) rotateZ(' + rz + 'deg)');
+    transform(div, 'translate3d(' + x + 'px, ' + y + 'px, 0px) ' +
+        'rotateX(' + rx + 'deg) ' +
+        'rotateY(' + ry + 'deg) ' +
+        'rotateZ(' + rz + 'deg)');
     tree.appendChild(div);
 }
