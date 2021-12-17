@@ -4,7 +4,7 @@ body, html {
     color: #fff;
     font-size: 11px;
     width: 100%;
-    height: 100%;
+    height: 110%;
     background: #c00;
 
     background: -moz-radial-gradient(center, ellipse cover, #c00 0%, #500 100%);
@@ -86,7 +86,7 @@ body {
     background-image: url(data:image/png;);
     background-repeat: no-repeat;
     background-position: 50% -5px;
-    background-size: 64px;
+    background-size: 68px;
     opacity: 1;
 }
 
