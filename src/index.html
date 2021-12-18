@@ -8,7 +8,12 @@
 
 </head>
 <body>
-<audio loop autoplay>
+
+<audio loop id="bgAudio" autoplay>
+    <source src="./musics/jingle-bells.mp3">
+</audio>
+
+<audio loop id="myAudio" preload="auto">
     <source src="./musics/small-jumping-frog.mp3">
 </audio>
 
@@ -65,17 +70,48 @@
     <p>Have a wonderful Christmas!</p>
 </div>
 <div class="footer christmas">
-    <p onclick="toggleJumping()"> 音乐狂6666 </p>
+    <p onclick="togglePlayAudio()"> 音乐狂6666 @ 2021 </p>
 </div>
 <div class="container-froggy">
     <div id="jump-fast" class="hide">
         <img alt="frog" src="./images/frog1.png"/>
     </div>
 </div>
+
 <script>
+    const bgAudio = document.getElementById('bgAudio')
+    const bgDiv = document.querySelectorAll("body > div:not(.footer)")
+
+    // console.log(bgDiv)
+    const n = bgDiv.length
+
+    function addEvent() {
+        for (let i = 0; i < n - 1; i++) {
+            bgDiv[i].addEventListener('click', () => {
+                if (!myAudio.paused) {
+                    myAudio.pause()
+                    toggleJumping()
+                }
+                return bgAudio.paused ? bgAudio.play() : bgAudio.pause()
+            })
+        }
+    }
+
+    addEvent()
+
     function toggleJumping() {
         const toggleDivFast = document.getElementById("jump-fast")
         toggleDivFast.classList.toggle("hide")
+    }
+
+    const myAudio = document.getElementById("myAudio");
+
+    function togglePlayAudio() {
+        toggleJumping()
+        if (!bgAudio.paused) {
+            bgAudio.pause()
+        }
+        return myAudio.paused ? myAudio.play() : myAudio.pause()
     }
 </script>
 <script src="./main.js"></script>
