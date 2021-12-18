@@ -82,6 +82,10 @@
     const bgAudio = document.getElementById('bgAudio')
     const bgDiv = document.querySelectorAll("body > div:not(.footer)")
 
+    window.load = () =>{
+        bgAudio.play()
+    }
+
     // console.log(bgDiv)
     const n = bgDiv.length
 
