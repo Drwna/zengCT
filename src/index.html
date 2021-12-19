@@ -8,120 +8,145 @@
 
 </head>
 <body>
+<div id="who" class="hide">
 
-<audio loop id="bgAudio" autoplay>
-    <source src="./musics/jingle-bells.mp3">
-</audio>
+    <audio loop id="bgAudio" autoplay>
+        <source src="./musics/jingle-bells.mp3">
+    </audio>
 
-<audio loop id="myAudio" preload="auto">
-    <source src="./musics/small-jumping-frog.mp3">
-</audio>
+    <audio loop id="myAudio" preload="auto">
+        <source src="./musics/small-jumping-frog.mp3">
+    </audio>
 
-<!--header-->
-<div class="light">
-    <ul class="line">
-        <li class="red"></li>
-        <li class="yellow"></li>
-        <li class="blue"></li>
-        <li class="pink"></li>
-        <li class="red"></li>
-        <li class="green"></li>
-        <li class="blue"></li>
-        <li class="yellow"></li>
-        <li class="red"></li>
-        <li class="pink"></li>
-        <li class="blue"></li>
-        <li class="yellow"></li>
-        <li class="red"></li>
-        <li class="green"></li>
-        <li class="blue"></li>
-        <li class="yellow"></li>
-        <li class="red"></li>
-        <li class="pink"></li>
-        <li class="green"></li>
-        <li class="blue"></li>
-        <li class="pink"></li>
-        <li class="red"></li>
-        <li class="green"></li>
-        <li class="blue"></li>
-    </ul>
-</div>
+    <!--header-->
+    <div class="light">
+        <ul class="line">
+            <li class="red"></li>
+            <li class="yellow"></li>
+            <li class="blue"></li>
+            <li class="pink"></li>
+            <li class="red"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+            <li class="yellow"></li>
+            <li class="red"></li>
+            <li class="pink"></li>
+            <li class="blue"></li>
+            <li class="yellow"></li>
+            <li class="red"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+            <li class="yellow"></li>
+            <li class="red"></li>
+            <li class="pink"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+            <li class="pink"></li>
+            <li class="red"></li>
+            <li class="green"></li>
+            <li class="blue"></li>
+        </ul>
+    </div>
 
-<h1>Merry Christmas ! </h1>
+    <h1>Merry Christmas ! </h1>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous">
-</script>
-<!-- partial -->
-<script src="./header/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous">
+    </script>
+    <!-- partial -->
+    <script src="./header/script.js"></script>
 
-<!--tree-->
+    <!--tree-->
 
-<div id="tree">
-    <div class="star"></div>
-</div>
-<div class="title">帅气迷人的唯心主义者</div>
-<div class="title">圣 诞 快 乐</div>
+    <div id="tree">
+        <div class="star"></div>
+    </div>
+    <div class="title">帅气迷人的唯心主义者</div>
+    <div class="title">圣 诞 快 乐</div>
 
-<div class="poem">
-    <p>ಮೆರ್ರಿ ಕ್ರಿಸ್ಮಸ್  නත්තලක්  మెర్రీ క్రిస్మస్</p>
-    <p>Eat. Drink. Be Merry. </p>
-    <p>Single dog Single dog Single all the day</p>
-    <!--    <p>Have a wonderful Christmas!</p>-->
-    <p>May you be filled with happiness!</p>
+    <div class="poem">
+        <p>ಮೆರ್ರಿ ಕ್ರಿಸ್ಮಸ್ නත්තලක් మెర్రీ క్రిస్మస్</p>
+        <p>Eat. Drink. Be Merry. </p>
+        <p>Single dog Single dog Single all the day</p>
+        <!--    <p>Have a wonderful Christmas!</p>-->
+        <p>May you be filled with happiness!</p>
 
-</div>
-<div class="footer christmas">
-    <p onclick="togglePlayAudio()"> 音乐狂6666 @
-        <script>document.write(new Date().getFullYear())</script>
-    </p>
-</div>
-<div class="container-froggy">
-    <div id="jump-fast" class="hide">
-        <img alt="frog" src="./images/frog1.png"/>
+    </div>
+    <div class="footer christmas">
+        <p onclick="togglePlayAudio()"> 音乐狂6666 @
+            <script>document.write(new Date().getFullYear())</script>
+        </p>
+    </div>
+    <div class="container-froggy">
+        <div id="jump-fast" class="hide">
+            <img alt="frog" src="./images/frog1.png"/>
+        </div>
     </div>
 </div>
-
 <script>
-    const bgAudio = document.getElementById('bgAudio')
-    const bgDiv = document.querySelectorAll("body > div:not(.footer)")
 
-    window.load = () => {
-        bgAudio.play()
-    }
+    const name = window.prompt('who am i ?')
 
-    // console.log(bgDiv)
-    const n = bgDiv.length
+    if (name === '蠢蛋的朋友'
+        || name === '我的头像真好看'
+        || name === '哥哥') {
 
-    function addEvent() {
-        for (let i = 0; i < n - 1; i++) {
-            bgDiv[i].addEventListener('click', () => {
-                if (!myAudio.paused) {
-                    myAudio.pause()
-                    toggleJumping()
-                }
-                return bgAudio.paused ? bgAudio.play() : bgAudio.pause()
+        console.log(`welcome to zeng's christmas tree`);
+        const enable = document.getElementById('who')
+        enable.classList.toggle('hide')
+
+        const bgAudio = document.getElementById('bgAudio')
+        const bgDiv = document.querySelectorAll("#who > div:not(.footer)")
+
+        window.load = () => {
+            bgAudio.play()
+        }
+
+        // console.log(bgDiv)
+        const n = bgDiv.length
+
+        function addEvent() {
+            for (let i = 0; i < n - 1; i++) {
+                bgDiv[i].addEventListener('click', () => {
+                    if (!myAudio.paused) {
+                        myAudio.pause()
+                        toggleJumping()
+                    }
+                    return bgAudio.paused ? bgAudio.play() : bgAudio.pause()
+                })
+            }
+        }
+
+        addEvent()
+
+        function toggleJumping() {
+            const toggleDivFast = document.getElementById("jump-fast")
+            toggleDivFast.classList.toggle("hide")
+        }
+
+        const myAudio = document.getElementById("myAudio");
+
+        function togglePlayAudio() {
+            toggleJumping()
+            if (!bgAudio.paused) {
+                bgAudio.pause()
+            }
+            return myAudio.paused ? myAudio.play() : myAudio.pause()
+        }
+    } else {
+        document.querySelector('#who').innerHTML = ''
+        const n = document.createElement('div')
+        n.innerHTML = `<p>这不是为你准备的</p>`
+        document.body.appendChild(n)
+        n.classList.add('enBox')
+        document.getElementsByTagName('p')[0]
+            .addEventListener('click', () => {
+                location.reload()
             })
-        }
     }
 
-    addEvent()
 
-    function toggleJumping() {
-        const toggleDivFast = document.getElementById("jump-fast")
-        toggleDivFast.classList.toggle("hide")
-    }
-
-    const myAudio = document.getElementById("myAudio");
-
-    function togglePlayAudio() {
-        toggleJumping()
-        if (!bgAudio.paused) {
-            bgAudio.pause()
-        }
-        return myAudio.paused ? myAudio.play() : myAudio.pause()
-    }
 </script>
 <script src="./main.js"></script>
 

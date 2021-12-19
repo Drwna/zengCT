@@ -300,3 +300,18 @@ frog
         left: 80%;
     }
 }
+
+/*enable*/
+
+.enBox {
+    font-size: 48px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.enBox > p {
+    margin: 0 auto;
+}
