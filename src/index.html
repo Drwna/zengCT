@@ -87,36 +87,45 @@
 <script>
 
     function recordDate() {
-        const hours = 0.01; // 3 minutes
+        const hours = 0.25; // 15 minutes
         const now = new Date().getTime();
         const setupTime = localStorage.getItem('setupTime')
-        if (setupTime === null) {
-            if (verify() === true) {
-                localStorage.setItem('setupTime', now)
+
+        const currentTime = now - setupTime
+        const lastTime = hours * 60 * 60 * 1000
+
+        if (setupTime) {
+            // 未过期
+            if (currentTime < lastTime) {
+                init()
+            } else {
+                if (verify() === true) {
+                    init()
+                    localStorage.removeItem('setupTimme')
+                    localStorage.setItem('setupTime', now)
+                } else {
+                    guest()
+                }
             }
         } else {
-            if (now - setupTime > hours * 60 * 60 * 1000) {
-                localStorage.removeItem('setupTime')
-                localStorage.setItem('setupTime', now)
-                verify()
-            } else {
+            if (verify() === true) {
                 init()
+                localStorage.setItem('setupTime', now)
+            } else {
+                guest()
             }
         }
     }
 
     recordDate()
 
+
     function verify() {
         const name = window.prompt('who am i ?')
         if (name === '蠢蛋的朋友'
             || name === '我的头像真好看'
             || name === '哥哥') {
-            init()
             return true
-        } else {
-            guest()
-            return false
         }
     }
 
@@ -180,8 +189,6 @@
         author.addEventListener('click', () => {
             togglePlayAudio()
         })
-
-
     }
 
 
