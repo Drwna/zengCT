@@ -74,7 +74,7 @@
 
     </div>
     <div class="footer christmas">
-        <p onclick="togglePlayAudio()"> 音乐狂6666 @
+        <p id="author"> 音乐狂6666 @
             <script>document.write(new Date().getFullYear())</script>
         </p>
     </div>
@@ -86,13 +86,54 @@
 </div>
 <script>
 
-    const name = window.prompt('who am i ?')
+    function recordDate() {
+        const hours = 0.01; // 3 minutes
+        const now = new Date().getTime();
+        const setupTime = localStorage.getItem('setupTime')
+        if (setupTime === null) {
+            if (verify() === true) {
+                localStorage.setItem('setupTime', now)
+            }
+        } else {
+            if (now - setupTime > hours * 60 * 60 * 1000) {
+                localStorage.removeItem('setupTime')
+                localStorage.setItem('setupTime', now)
+                verify()
+            } else {
+                init()
+            }
+        }
+    }
 
-    if (name === '蠢蛋的朋友'
-        || name === '我的头像真好看'
-        || name === '哥哥') {
+    recordDate()
 
-        console.log(`welcome to zeng's christmas tree`);
+    function verify() {
+        const name = window.prompt('who am i ?')
+        if (name === '蠢蛋的朋友'
+            || name === '我的头像真好看'
+            || name === '哥哥') {
+            init()
+            return true
+        } else {
+            guest()
+            return false
+        }
+    }
+
+    function guest() {
+        document.querySelector('#who').innerHTML = ''
+        const n = document.createElement('div')
+        n.innerHTML = `<p>这不是为你准备的</p>`
+        document.body.appendChild(n)
+        n.classList.add('enBox')
+        document.getElementsByTagName('p')[0]
+            .addEventListener('click', () => {
+                location.reload()
+            })
+    }
+
+    function init() {
+        // console.log(`welcome to zeng's christmas tree`);
         const enable = document.getElementById('who')
         enable.classList.toggle('hide')
 
@@ -101,6 +142,11 @@
 
         window.load = () => {
             bgAudio.play()
+        }
+
+        function toggleJumping() {
+            const toggleDivFast = document.getElementById("jump-fast")
+            toggleDivFast.classList.toggle("hide")
         }
 
         // console.log(bgDiv)
@@ -120,11 +166,6 @@
 
         addEvent()
 
-        function toggleJumping() {
-            const toggleDivFast = document.getElementById("jump-fast")
-            toggleDivFast.classList.toggle("hide")
-        }
-
         const myAudio = document.getElementById("myAudio");
 
         function togglePlayAudio() {
@@ -134,16 +175,13 @@
             }
             return myAudio.paused ? myAudio.play() : myAudio.pause()
         }
-    } else {
-        document.querySelector('#who').innerHTML = ''
-        const n = document.createElement('div')
-        n.innerHTML = `<p>这不是为你准备的</p>`
-        document.body.appendChild(n)
-        n.classList.add('enBox')
-        document.getElementsByTagName('p')[0]
-            .addEventListener('click', () => {
-                location.reload()
-            })
+
+        const author = document.querySelector('#author')
+        author.addEventListener('click', () => {
+            togglePlayAudio()
+        })
+
+
     }
 
 
