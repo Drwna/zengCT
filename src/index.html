@@ -65,12 +65,17 @@
 <div class="title">圣 诞 快 乐</div>
 
 <div class="poem">
-    <p>May you be filled with happiness!</p>
+    <p>ಮೆರ್ರಿ ಕ್ರಿಸ್ಮಸ್  නත්තලක්  మెర్రీ క్రిస్మస్</p>
     <p>Eat. Drink. Be Merry. </p>
-    <p>Have a wonderful Christmas!</p>
+    <p>Single dog Single dog Single all the day</p>
+    <!--    <p>Have a wonderful Christmas!</p>-->
+    <p>May you be filled with happiness!</p>
+
 </div>
 <div class="footer christmas">
-    <p onclick="togglePlayAudio()"> 音乐狂6666 @ 2021 </p>
+    <p onclick="togglePlayAudio()"> 音乐狂6666 @
+        <script>document.write(new Date().getFullYear())</script>
+    </p>
 </div>
 <div class="container-froggy">
     <div id="jump-fast" class="hide">
@@ -82,7 +87,7 @@
     const bgAudio = document.getElementById('bgAudio')
     const bgDiv = document.querySelectorAll("body > div:not(.footer)")
 
-    window.load = () =>{
+    window.load = () => {
         bgAudio.play()
     }
 

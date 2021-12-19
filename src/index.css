@@ -227,7 +227,7 @@ audio {
 
 
 .title {
-    font-size: 72px;
+    font-size: 62px;
     font-weight: bold;
     width: 100%;
     text-align: center;
@@ -237,7 +237,7 @@ audio {
 }
 
 .poem {
-    font-size: 44px;
+    font-size: 26px;
 }
 
 .poem,

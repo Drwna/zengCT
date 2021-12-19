@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        #myAnimation {
+            position: relative;
+            animation: myMove 5s infinite;
+            -webkit-animation: myMove 5s infinite; /*Safari and Chrome*/
+            animation-direction: alternate; /*轮流反向播放动画。*/
+            animation-timing-function: ease-in-out; /*动画的速度曲线*/
+            /* Safari 和 Chrome */
+            -webkit-animation-direction: alternate; /*轮流反向播放动画。*/
+            -webkit-animation-timing-function: ease-in-out; /*动画的速度曲线*/
+        }
+
+        @keyframes myMove {
+            0% {
+                transform: scale(1); /*开始为原始大小*/
+            }
+            25% {
+                transform: scale(1.1); /*放大1.1倍*/
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.1);
+            }
+
+        }
+
+        @-webkit-keyframes myMove /*Safari and Chrome*/
+        {
+            0% {
+                transform: scale(1); /*开始为原始大小*/
+            }
+            25% {
+                transform: scale(1.1); /*放大1.1倍*/
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.1);
+            }
+        }
+
+        .box {
+            height: 35px;
+            width: 300px;
+            background-color: orange;
+            border-radius: 4px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="myAnimation" class="box"></div>
+</div>
+
+</body>
+</html>
