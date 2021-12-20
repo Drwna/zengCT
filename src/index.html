@@ -240,6 +240,7 @@
 <script src="./another-tree/script.js"></script>
 
 <script>
+    console.log('代码太烂了！！！')
 
     function recordDate() {
         const hours = 0.25; // 15 minutes
@@ -249,18 +250,17 @@
         const currentTime = now - setupTime
         const lastTime = hours * 60 * 60 * 1000
 
-        const ver = verify()
         console.log('返回成功')
         if (setupTime) {
             // 未过期
             if (currentTime < lastTime) {
                 init()
             } else {
-                if (ver === 'myPeople') {
+                if (verify() === 'myPeople') {
                     init()
                     localStorage.removeItem('setupTime')
                     localStorage.setItem('setupTime', `${now}`)
-                } else if (ver === 'people1') {
+                } else if (verify() === 'people1') {
                     console.log('spider-man')
                     anotherTree()
                 } else {
@@ -268,10 +268,10 @@
                 }
             }
         } else {
-            if (ver === 'myPeople') {
+            if (verify() === 'myPeople') {
                 init()
                 localStorage.setItem('setupTime', `${now}`)
-            } else if (ver === 'people1') {
+            } else if (verify() === 'people1') {
                 anotherTree()
             } else {
                 guest()
@@ -299,7 +299,9 @@
             || name === '我的头像真好看'
             || name === '哥哥') {
             return 'myPeople'
-        } else if (name === 'i am spider-man' || name === 'i am iron-man' || name === '龙') {
+        } else if (name === 'i am spider-man'
+            || name === 'i am iron-man'
+            || name === '龙') {
             console.log('终于')
             return 'people1'
         } else {
