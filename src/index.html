@@ -75,10 +75,10 @@
     </div>
     <div class="footer christmas">
         <p id="author"> 音乐狂6666 @
-            <script>document.write(new Date().getFullYear())</script>
+            <script>document.write(`${new Date().getFullYear()}`)</script>
         </p>
     </div>
-    <div class="container-froggy">
+    <div class="container-frog">
         <div id="jump-fast" class="hide">
             <img alt="frog" src="./images/frog1.png"/>
         </div>
@@ -101,8 +101,8 @@
             } else {
                 if (verify() === true) {
                     init()
-                    localStorage.removeItem('setupTimme')
-                    localStorage.setItem('setupTime', now)
+                    localStorage.removeItem('setupTime')
+                    localStorage.setItem('setupTime', `${now}`)
                 } else {
                     guest()
                 }
@@ -110,7 +110,7 @@
         } else {
             if (verify() === true) {
                 init()
-                localStorage.setItem('setupTime', now)
+                localStorage.setItem('setupTime', `${now}`)
             } else {
                 guest()
             }
@@ -119,6 +119,15 @@
 
     recordDate()
 
+    function tempAlert(msg, duration) {
+        const el = document.createElement("div");
+        el.classList.add('tempAlert')
+        el.innerHTML = `<p>${msg}</p>`;
+        setTimeout(function () {
+            el.parentNode.removeChild(el);
+        }, duration);
+        document.body.appendChild(el);
+    }
 
     function verify() {
         const name = window.prompt('who am i ?')
@@ -126,16 +135,20 @@
             || name === '我的头像真好看'
             || name === '哥哥') {
             return true
+        } else {
+            tempAlert("oops, this is for Miss Zeng, not for you!!", 3000)
+            return false
         }
     }
+
 
     function guest() {
         document.querySelector('#who').innerHTML = ''
         const n = document.createElement('div')
-        n.innerHTML = `<p>这不是为你准备的</p>`
+        n.innerHTML = `<p>CLICK ME TO SEE YOUR GIFT</p>`
         document.body.appendChild(n)
         n.classList.add('enBox')
-        document.getElementsByTagName('p')[0]
+        document.getElementsByTagName('p')[1]
             .addEventListener('click', () => {
                 location.reload()
             })
@@ -186,9 +199,11 @@
         }
 
         const author = document.querySelector('#author')
-        author.addEventListener('click', () => {
-            togglePlayAudio()
-        })
+        if (author) {
+            author.addEventListener('click', () => {
+                togglePlayAudio()
+            })
+        }
     }
 
 

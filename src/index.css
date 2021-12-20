@@ -256,7 +256,7 @@ audio {
 /**
 frog
  */
-.container-froggy {
+.container-frog {
     width: 90%;
     margin: 0 auto;
     min-height: 200px;
@@ -304,7 +304,8 @@ frog
 /*enable*/
 
 .enBox {
-    font-size: 48px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 44px;
     width: 100%;
     height: 100%;
     border: 3px solid black;
@@ -314,4 +315,24 @@ frog
 
 .enBox > p {
     margin: 0 auto;
+}
+
+.tempAlert {
+    font-family: 'Dancing Script', cursive;
+    font-size: 44px;
+    background-color: red;
+    border: 2px solid red;
+    border-radius: 10px;
+    position: absolute;
+    width: 60%;
+    height: 10%;
+    top: 45%;
+    left: 45%;
+    margin-left: -25%;
+}
+
+.tempAlert > p {
+    /*margin: auto;*/
+    text-align: center;
+    vertical-align: middle;
 }
