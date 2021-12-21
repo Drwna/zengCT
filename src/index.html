@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="./header/style.css">
     <link rel="stylesheet" href="./another-tree/another-tree.css">
+    <style>
+        #clearTime {
+            width: 200px;
+            height: 55px;
+            border: 1px solid rgba(255, 255, 255, 0);
+            top: 165px;
+            position: absolute;
+        }
+    </style>
 
 </head>
 <body>
@@ -49,6 +58,7 @@
         </ul>
     </div>
 
+    <div id="clearTime" onclick="clearTime()"></div>
     <h1>Merry Christmas ! </h1>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -308,6 +318,11 @@
 
     function verify() {
         const name = window.prompt('who am i ?')
+        // null.trim() 报错
+        if (name === null || name === '') {
+            return false
+        }
+        name.trim()
         // if (name === '蠢蛋的朋友'
         //     || name === '我的头像真好看'
         //     || name === '哥哥') {
@@ -420,6 +435,10 @@
         }
     }
 
+    function clearTime() {
+        window.localStorage.removeItem('setupTime')
+        window.location.reload()
+    }
 
 </script>
 <script src="./main.js"></script>
