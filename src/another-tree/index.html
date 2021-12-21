@@ -5,6 +5,20 @@
     <title>Christmas Tree</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="another-tree.css">
+    <style>
+        .message {
+            font-size: 64px;
+            color: red;
+            font-family: "Berkshire Swash", cursive;
+            font-weight: normal;
+            text-align: center;
+            text-shadow: 0 0.05em 0.06em white;
+            position: absolute;
+            left: 50%;
+            top: 90%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 
 </head>
 <body>
@@ -162,12 +176,14 @@
         <div class="treeBottom"></div>
     </div>
 </div>
-<div class="merry">圣诞快乐</div>
+<div class="message">
+    <p>Merry Christmas！</p>
+</div>
 <!-- partial -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script>
-    const tree = document.querySelector('.container')
-    tree.addEventListener('click', () => {
+    const returnHome = document.querySelector('.message')
+    returnHome.addEventListener('click', () => {
         window.location = '../index.html'
     })
 </script>

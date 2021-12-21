@@ -297,8 +297,8 @@
                     welcome()
                     localStorage.setItem('setupTime', `${now}`)
                     break
-                case 'people':
-                    anotherTree()
+                case v:
+                    anotherTree(v)
                     break
                 default:
                     guest()
@@ -320,12 +320,15 @@
         //     return false
         // }
         switch (name) {
-            case '蠢蛋的朋友':
+            case '龙':
             case '哥哥':
             case '我的头像真好看':
                 return 'myPeople'
-            case 'spider-man':
-                return 'people1'
+            case 'spider man':
+            case 'spiderman':
+            case 'ironman':
+            case 'iron man':
+                return name
             default:
                 tempAlert('oops! this is for Miss Zeng, not for you!', 3000)
                 return false
@@ -407,8 +410,14 @@
         }
     }
 
-    function anotherTree() {
-        window.location = './another-tree/index.html'
+    function anotherTree(name) {
+        if (name === 'spider man') {
+            window.location = './another-tree/index.html'
+        } else if (name === 'iron man') {
+            window.location = './swinging-tree/index.html'
+        } else {
+            guest()
+        }
     }
 
 
