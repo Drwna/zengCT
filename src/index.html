@@ -240,9 +240,11 @@
 <script src="./another-tree/script.js"></script>
 
 <script>
-    console.log('代码太烂了！！！')
+    console.log('代码太烂了！！！不忍直视！！')
 
-    function recordDate() {
+    setTimeout(recordTime, 450)
+
+    function recordTime() {
         const hours = 0.25; // 15 minutes
         const now = new Date().getTime();
         const setupTime = localStorage.getItem('setupTime')
@@ -250,37 +252,85 @@
         const currentTime = now - setupTime
         const lastTime = hours * 60 * 60 * 1000
 
-        console.log('返回成功')
+
         if (setupTime) {
             // 未过期
             if (currentTime < lastTime) {
-                init()
+                welcome()
             } else {
-                if (verify() === 'myPeople') {
-                    init()
-                    localStorage.removeItem('setupTime')
-                    localStorage.setItem('setupTime', `${now}`)
-                } else if (verify() === 'people1') {
-                    console.log('spider-man')
-                    anotherTree()
-                } else {
-                    guest()
+                const a = verify()
+                // if (a === 'myPeople') {
+                //     welcome()
+                //     localStorage.removeItem('setupTime')
+                //     localStorage.setItem('setupTime', `${now}`)
+                // } else if (a === 'people1') {
+                //     console.log('spider-man')
+                //     anotherTree()
+                // } else {
+                //     guest()
+                // }
+                switch (a) {
+                    case 'myPeople':
+                        welcome()
+                        localStorage.removeItem('setupTime')
+                        localStorage.setItem('setupTime', `${now}`)
+                        break
+                    case 'people1':
+                        anotherTree()
+                        break
+                    default:
+                        guest()
                 }
             }
         } else {
-            if (verify() === 'myPeople') {
-                init()
-                localStorage.setItem('setupTime', `${now}`)
-            } else if (verify() === 'people1') {
-                anotherTree()
-            } else {
-                guest()
+            const v = verify()
+            // if (v === 'myPeople') {
+            //     welcome()
+            //     localStorage.setItem('setupTime', `${now}`)
+            // } else if (v === 'people1') {
+            //     anotherTree()
+            // } else {
+            //     guest()
+            // }
+            switch (v) {
+                case 'myPeople':
+                    welcome()
+                    localStorage.setItem('setupTime', `${now}`)
+                    break
+                case 'people':
+                    anotherTree()
+                    break
+                default:
+                    guest()
             }
         }
     }
 
-    //start
-    recordDate()
+    function verify() {
+        const name = window.prompt('who am i ?')
+        // if (name === '蠢蛋的朋友'
+        //     || name === '我的头像真好看'
+        //     || name === '哥哥') {
+        //     return 'myPeople'
+        // } else if (name === 'spider-man'
+        //     || name === '龙') {
+        //     return 'people1'
+        // } else {
+        //     tempAlert("oops, this is for Miss Zeng, not for you!!", 3000)
+        //     return false
+        // }
+        switch (name) {
+            case '蠢蛋的朋友':
+            case '哥哥':
+            case '我的头像真好看':
+                return 'myPeople'
+            case 'spider-man':
+                return 'people1'
+            default:
+                tempAlert('oops! this is for Miss Zeng, not for you!', 3000)
+                return false
+        }
+    }
 
     function tempAlert(msg, duration) {
         const el = document.createElement("div");
@@ -292,40 +342,20 @@
         document.body.appendChild(el);
     }
 
-    function verify() {
-        const name = window.prompt('who am i ?')
-        console.log(name)
-        if (name === '蠢蛋的朋友'
-            || name === '我的头像真好看'
-            || name === '哥哥') {
-            return 'myPeople'
-        } else if (name === 'i am spider-man'
-            || name === 'i am iron-man'
-            || name === '龙') {
-            console.log('终于')
-            return 'people1'
-        } else {
-            tempAlert("oops, this is for Miss Zeng, not for you!!", 3000)
-            return false
-        }
-    }
-
-
     function guest() {
         document.querySelector('#myPeople').innerHTML = ''
         const n = document.createElement('div')
-        n.innerHTML = `<p>CLICK ME TO SEE YOUR GIFT</p>`
+        n.innerHTML = `<p id="clickMe">CLICK ME TO SEE YOUR GIFT</p>`
         document.body.appendChild(n)
         n.classList.add('enBox')
-        const p = document.getElementsByTagName('p')[1]
-        if (p) {
-            p.addEventListener('click', () => {
-                location.reload()
-            })
-        }
+        const p = document.querySelector('#clickMe')
+        p.addEventListener('click', () => {
+            location.reload()
+            // console.log('点击了')
+        })
     }
 
-    function init() {
+    function welcome() {
         // console.log(`welcome to zeng's christmas tree`);
         const enable = document.getElementById('myPeople')
         enable.classList.toggle('hide')
@@ -380,8 +410,6 @@
     function anotherTree() {
         window.location = './another-tree/index.html'
     }
-
-    // anotherTree()
 
 
 </script>
