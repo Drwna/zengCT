@@ -65,7 +65,7 @@ export function render() {
     const previousPage = document.querySelector('.previous')
     previousPage.addEventListener('click', (e) => {
         e.stopPropagation()
-        window.location = 'crystal-ball'
+        window.location = 'z-ball'
     })
 
     const clearTime = document.querySelector('#clearTime')
