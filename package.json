@@ -1,0 +1,8 @@
+{
+  "name": "christmas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "draganet <3417237276@qq.com>",
+  "license": "MIT",
+  "type": "module"
+}

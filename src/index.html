@@ -5,7 +5,8 @@
     <title>Merry Christmas</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="./header/style.css">
-    <link rel="stylesheet" href="./another-tree/another-tree.css">
+    <link rel="stylesheet" href="rotating-tree/another-tree.css">
+    <link rel="stylesheet" href="./tempAlert.css">
     <style>
         #clearTime {
             width: 200px;
@@ -14,6 +15,15 @@
             top: 165px;
             position: absolute;
         }
+
+        .previous {
+            border: 1px solid yellow;
+        }
+
+        .next {
+            border: 1px solid yellow;
+        }
+
     </style>
 
 </head>
@@ -21,7 +31,7 @@
 <div id="myPeople" class="hide">
 
     <audio loop id="bgAudio">
-        <source src="./musics/jingle-bells.mp3">
+        <source src="./musics/dou-jingle-bells.mp3">
     </audio>
 
     <audio loop id="myAudio" preload="auto">
@@ -58,7 +68,7 @@
         </ul>
     </div>
 
-    <div id="clearTime" onclick="clearTime()"></div>
+    <div id="clearTime"></div>
     <h1>Merry Christmas ! </h1>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -77,11 +87,15 @@
     <div class="title">圣 诞 快 乐</div>
 
     <div class="poem">
-        <p>ಮೆರ್ರಿ ಕ್ರಿಸ್ಮಸ್ නත්තලක් మెర్రీ క్రిస్మస్</p>
-        <p>Eat. Drink. Be Merry. </p>
-        <p>Single dog Single dog Single all the day</p>
+        <p>🎅ಮೆರ್ರಿ ಕ್ರಿಸ್ಮಸ್ නත්තලක් మెర్రీ క్రిస్మస్🎅</p>
+        <p>💖Eat. Drink. Be Merry. 💖</p>
+        <p>🐶Singledog Singledog Single all the day🐶</p>
         <!--    <p>Have a wonderful Christmas!</p>-->
-        <p>May you be filled with happiness!</p>
+        <p>
+            <span class="previous">&nbsp;&nbsp;&nbsp;🎄</span>
+            May you be filled with happiness!
+            <span class="next">🎄&nbsp;&nbsp;&nbsp;</span>
+        </p>
 
     </div>
     <div class="footer christmas">
@@ -247,198 +261,14 @@
     </div>
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script src="./another-tree/script.js"></script>
+<script src="rotating-tree/script.js"></script>
 
-<script>
-    console.log('代码太烂了！！！不忍直视！！')
+<script type="module">
+    import recordTime from "./js/recordTime.js"
+
+    console.log('代码太烂了！！！我都不忍直视！！')
 
     setTimeout(recordTime, 450)
-
-    function recordTime() {
-        const hours = 0.25; // 15 minutes
-        const now = new Date().getTime();
-        const setupTime = localStorage.getItem('setupTime')
-
-        const currentTime = now - setupTime
-        const lastTime = hours * 60 * 60 * 1000
-
-
-        if (setupTime) {
-            // 未过期
-            if (currentTime < lastTime) {
-                welcome()
-            } else {
-                const a = verify()
-                // if (a === 'myPeople') {
-                //     welcome()
-                //     localStorage.removeItem('setupTime')
-                //     localStorage.setItem('setupTime', `${now}`)
-                // } else if (a === 'people1') {
-                //     console.log('spider-man')
-                //     anotherTree()
-                // } else {
-                //     guest()
-                // }
-                switch (a) {
-                    case 'myPeople':
-                        welcome()
-                        localStorage.removeItem('setupTime')
-                        localStorage.setItem('setupTime', `${now}`)
-                        break
-                    case 'people1':
-                        anotherTree()
-                        break
-                    default:
-                        guest()
-                }
-            }
-        } else {
-            const v = verify()
-            // if (v === 'myPeople') {
-            //     welcome()
-            //     localStorage.setItem('setupTime', `${now}`)
-            // } else if (v === 'people1') {
-            //     anotherTree()
-            // } else {
-            //     guest()
-            // }
-            switch (v) {
-                case 'myPeople':
-                    welcome()
-                    localStorage.setItem('setupTime', `${now}`)
-                    break
-                case v:
-                    anotherTree(v)
-                    break
-                default:
-                    guest()
-            }
-        }
-    }
-
-    function verify() {
-        const name = window.prompt('who am i ?')
-        // null.trim() 报错
-        if (name === null || name === '') {
-            return false
-        }
-        name.trim()
-        // if (name === '蠢蛋的朋友'
-        //     || name === '我的头像真好看'
-        //     || name === '哥哥') {
-        //     return 'myPeople'
-        // } else if (name === 'spider-man'
-        //     || name === '龙') {
-        //     return 'people1'
-        // } else {
-        //     tempAlert("oops, this is for Miss Zeng, not for you!!", 3000)
-        //     return false
-        // }
-        switch (name) {
-            case '龙':
-            case '哥哥':
-            case '我的头像真好看':
-                return 'myPeople'
-            case 'spider man':
-            case 'spiderman':
-            case 'ironman':
-            case 'iron man':
-                return name
-            default:
-                tempAlert('oops! this is for Miss Zeng, not for you!', 3000)
-                return false
-        }
-    }
-
-    function tempAlert(msg, duration) {
-        const el = document.createElement("div");
-        el.classList.add('tempAlert')
-        el.innerHTML = `<p>${msg}</p>`;
-        setTimeout(function () {
-            el.parentNode.removeChild(el);
-        }, duration);
-        document.body.appendChild(el);
-    }
-
-    function guest() {
-        document.querySelector('#myPeople').innerHTML = ''
-        const n = document.createElement('div')
-        n.innerHTML = `<p id="clickMe">CLICK ME TO SEE YOUR GIFT</p>`
-        document.body.appendChild(n)
-        n.classList.add('enBox')
-        const p = document.querySelector('#clickMe')
-        p.addEventListener('click', () => {
-            location.reload()
-            // console.log('点击了')
-        })
-    }
-
-    function welcome() {
-        // console.log(`welcome to zeng's christmas tree`);
-        const enable = document.getElementById('myPeople')
-        enable.classList.toggle('hide')
-
-        const bgAudio = document.getElementById('bgAudio')
-        const bgDiv = document.querySelectorAll("#myPeople > div:not(.footer)")
-
-        window.load = () => {
-            bgAudio.play()
-        }
-
-        function toggleJumping() {
-            const toggleDivFast = document.getElementById("jump-fast")
-            toggleDivFast.classList.toggle("hide")
-        }
-
-        // console.log(bgDiv)
-        const n = bgDiv.length
-
-        function addEvent() {
-            for (let i = 0; i < n - 1; i++) {
-                bgDiv[i].addEventListener('click', () => {
-                    if (!myAudio.paused) {
-                        myAudio.pause()
-                        toggleJumping()
-                    }
-                    return bgAudio.paused ? bgAudio.play() : bgAudio.pause()
-                })
-            }
-        }
-
-        addEvent()
-
-        const myAudio = document.getElementById("myAudio");
-
-        function togglePlayAudio() {
-            toggleJumping()
-            if (!bgAudio.paused) {
-                bgAudio.pause()
-            }
-            return myAudio.paused ? myAudio.play() : myAudio.pause()
-        }
-
-        const author = document.querySelector('#author')
-        if (author) {
-            author.addEventListener('click', () => {
-                togglePlayAudio()
-            })
-        }
-    }
-
-    function anotherTree(name) {
-        if (name === 'spider man') {
-            window.location = './another-tree/index.html'
-        } else if (name === 'iron man') {
-            window.location = './swinging-tree/index.html'
-        } else {
-            guest()
-        }
-    }
-
-    function clearTime() {
-        window.localStorage.removeItem('setupTime')
-        window.location.reload()
-    }
 
 </script>
 <script src="./main.js"></script>

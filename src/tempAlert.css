@@ -1,0 +1,34 @@
+.tempAlert {
+    font-family: 'Dancing Script', cursive;
+    font-size: 44px;
+    background-color: red;
+    border: 2px solid red;
+    border-radius: 10px;
+    position: absolute;
+    width: 60%;
+    height: 10%;
+    top: 45%;
+    left: 45%;
+    margin-left: -25%;
+}
+
+.tempAlert > p {
+    /*margin: auto;*/
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*click me to see your gift*/
+.enBox {
+    font-family: 'Dancing Script', cursive;
+    font-size: 44px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgba(255, 255, 255, 0);
+    display: flex;
+    align-items: center;
+}
+
+.enBox > p {
+    margin: 0 auto;
+}

@@ -18,6 +18,10 @@
             top: 90%;
             transform: translate(-50%, -50%);
         }
+
+        .message > p {
+            margin: 0;
+        }
     </style>
 
 </head>
@@ -177,14 +181,29 @@
     </div>
 </div>
 <div class="message">
-    <p>Merry Christmas！</p>
+    <p>
+        <span class="next">Merry</span>
+        <span class="previous">Christmas！</span>
+    </p>
 </div>
 <!-- partial -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <script>
-    const returnHome = document.querySelector('.message')
+    console.log('代码太烂了！！！我都不忍直视！！')
+
+    const returnHome = document.querySelector('body')
     returnHome.addEventListener('click', () => {
-        window.location = '../'
+        window.location = '../index.html'
+    })
+    const nextPage = document.querySelector('.next')
+    nextPage.addEventListener('click', (e) => {
+        e.stopPropagation()
+        window.location = '../swinging-tree/index.html'
+    })
+    const previousPage = document.querySelector('.previous')
+    previousPage.addEventListener('click', (e) => {
+        e.stopPropagation()
+        window.location = document.referrer
     })
 </script>
 <script src="./script.js"></script>

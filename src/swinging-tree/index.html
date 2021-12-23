@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <title>Christmas Tree</title>
     <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="../tempAlert.css">
     <style>
         .message {
             font-size: 64px;
@@ -17,155 +18,280 @@
             top: 94%;
             transform: translate(-50%, -50%);
         }
+
+        .hide {
+            display: none;
+        }
+
+        .enBox > p {
+            color: white;
+        }
     </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
-<ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
-<div class="message">
-    <p>Merry Christmas！</p>
+<div id="swingingTree" class="hide">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </div>
-<script>
-    const returnHome = document.querySelector('.message')
-    returnHome.addEventListener('click', () => {
-        window.location = '../'
-    })
+<div class="message hide">
+    <p>
+        <span class="previous">Merry</span>
+        <span class="next">Christmas！</span>
+    </p>
+</div>
+<script type="module">
+    console.log('代码太烂了！！！我都不忍直视！！')
+
+    import verify from "../js/verify.js"
+    import guest from "../js/guest.js"
+    import {
+        currentTime,
+        lastTime,
+        now,
+        setupTime, zeng
+    } from "../js/render.js"
+
+    const referrerURL = document.referrer
+    // const currentURL = window.location.href
+    // console.log('来源', referrerURL)
+    // console.log('当前', currentU
+
+    const p = localStorage.getItem('myPeople')
+
+    if (referrerURL === "http://draganet.gitee.io/zeng-christmas-tree/"
+        || referrerURL === ' http://localhost:63342/christmas/src/index.html'
+        || referrerURL === 'http://192.168.1.3:8080/'
+    ) {
+        swingingTreeRender()
+    } else if (!p) {
+        if (referrerURL === ''
+            || referrerURL === referrerURL) {
+            checkTime() ? swingingTreeRender() : guest()
+        } else {
+            swingingTreeRender()
+        }
+        window.addEventListener("beforeunload", () => {
+            localStorage.removeItem('setupTime')
+        })
+    } else {
+        swingingTreeRender()
+    }
+
+    function checkTime() {
+        if (setupTime) {
+            // 未过期
+            if (currentTime < lastTime) {
+                swingingTreeRender()
+                return true
+            } else if (verify() === 'iron man') {// 过期重新验证
+                swingingTreeRender()
+                localStorage.removeItem('setupTime')
+                localStorage.setItem('setupTime', `${now}`)
+                return true
+            }
+        } else {
+            const v = verify()
+            if (v === 'iron man') {
+                swingingTreeRender()
+                localStorage.setItem('setupTime', `${now}`)
+            } else if (v === 'myPeople') {
+                console.log('我的人')
+                zeng()
+                swingingTreeRender()
+                previousPage()
+                nextPage()
+                ableReturnHome()
+            }
+        }
+    }
+
+    function swingingTreeRender() {
+        const tree = document.querySelector('#swingingTree')
+        const message = document.querySelector('.message')
+
+        tree.classList.remove('hide')
+        message.classList.remove('hide')
+
+        if (p) {
+            addListener()
+        }
+
+        const bd = document.body
+        bd.addEventListener('click', () => {
+            message.classList.toggle('hide')
+        })
+
+        const en = document.querySelector('.enBox')
+        en.classList.toggle('hide')
+    }
+
+    function addListener() {
+        ableReturnHome()
+        nextPage()
+        previousPage()
+    }
+
+    function ableReturnHome() {
+        const returnHome = document.body
+        returnHome.addEventListener('click', (e) => {
+            e.stopPropagation()
+            window.location = '../'
+        })
+    }
+
+    function nextPage() {
+        const nextPage = document.querySelector('.next')
+        nextPage.addEventListener('click', (e) => {
+            e.stopPropagation()
+            window.location = '../rotating-tree/index.html'
+        })
+    }
+
+    function previousPage() {
+        const previousPage = document.querySelector('.previous')
+        previousPage.addEventListener('click', (e) => {
+            e.stopPropagation()
+            window.location = referrerURL
+        })
+    }
+
+
 </script>
 <!-- partial -->
 <!-- <script src="https://codepen.io/z-/pen/a8e37caf2a04602ea5815e5acedab458.js"></script> -->
