@@ -2,7 +2,7 @@ import tempAlert from "./tempAlert.js"
 
 function verify() {
     let name = window.prompt('who am i ?')
-    if (name === null) {
+    if (name === null || name === '') {
         return false
     }
     name = name.trim().toLowerCase()
