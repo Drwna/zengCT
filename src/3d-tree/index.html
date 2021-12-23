@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=0.8, minimum-scale=0.8, maximum-scale=0.8, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Dear Zeng, Merry Christmas !</title>
+    <link rel="stylesheet" href="../tempAlert.css">
+    <style>
+        body {
+            background-color: #3194b2;
+            /*margin: 0;*/
+            overflow: hidden;
+        }
+
+        .message {
+            font-size: 44px;
+            color: red;
+            font-family: "Berkshire Swash", cursive;
+            font-weight: normal;
+            text-align: center;
+            text-shadow: 0 0.05em 0.06em white;
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            top: 70%;
+            transform: translate(-50%, -50%);
+        }
+
+        .message > p {
+            margin: 0;
+        }
+
+        .enBox {
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid rgba(255, 255, 255, 0);
+            position: absolute;
+            top: 0;
+        }
+
+        .enBox > p {
+            margin: 0 auto;
+        }
+
+        .tempAlert {
+            background: #3194b2;
+            font-size: 28px;
+            color: red;
+            border: none;
+            z-index: 1;
+            width: 92%;
+            left: 28%;
+        }
+
+        .hide {
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="tree hide">
+    <div style="height: 26px;"></div>
+    <canvas id="c" height="500" width="500"></canvas>
+</div>
+<div class="message hide">
+    <p>
+        <span class="previous">Merry</span>
+        <span class="next">Christmas！</span>
+    </p>
+</div>
+
+<script type="module">
+    console.log('代码太烂了！！！我都不忍直视！！')
+
+    import verify from "../js/verify.js"
+    import guest from "../js/guest.js"
+    import {
+        currentTime,
+        lastTime,
+        now,
+        setupTime, zeng
+    } from "../js/render.js"
+
+    const referrerURL = document.referrer
+    // const currentURL = window.location.href
+    // console.log('来源', referrerURL)
+    // console.log('当前', currentURL)
+
+    const p = localStorage.getItem('myPeople')
+    const myPeopleURL = "http://draganet.gitee.io/zeng-christmas-tree/"
+    const testURL = "http://192.168.1.3:8080/"
+
+    if (referrerURL === myPeopleURL || referrerURL === testURL) {
+        treeRender()
+    } else if (!p) {
+        if (referrerURL === ''
+            || referrerURL === referrerURL) {
+            checkTime() ? treeRender() : guest()
+        } else {
+            treeRender()
+        }
+        window.addEventListener("beforeunload", () => {
+            localStorage.removeItem('setupTime')
+        })
+    } else {
+        treeRender()
+    }
+
+    // 代码屎一样 不想改了 md
+    function checkTime() {
+        if (setupTime) {
+            // 未过期
+            const v = verify()
+            if (currentTime < lastTime) {
+                treeRender()
+                return true
+            } else if (v === '3') {// 过期重新验证
+                treeRender()
+                localStorage.removeItem('setupTime')
+                localStorage.setItem('setupTime', `${now}`)
+                return true
+            }
+        } else {
+            const v = verify()
+            if (v === '3') {
+                treeRender()
+                hiddenGuest()
+                localStorage.setItem('setupTime', `${now}`)
+            } else if (v === 'myPeople') {
+                console.log('我的人')
+                zeng()
+                treeRender()
+                treeAddListener()
+                hiddenGuest()
+                console.log('监听成功')
+            }
+        }
+    }
+
+    function treeRender() {
+        const tree = document.querySelector('.tree')
+        const message = document.querySelector('.message')
+
+        tree.classList.toggle('hide')
+        // tree.parentNode.removeChild(tree)
+        message.classList.toggle('hide')
+
+        if (p) {
+            treeAddListener()
+        }
+
+        const bd = document.body
+        bd.addEventListener('click', () => {
+            message.classList.toggle('hide')
+        })
+    }
+
+    function hiddenGuest() {
+        const en = document.querySelector('#clickMe')
+        en.classList.toggle('hide')
+    }
+
+    function treeAddListener() {
+        ableReturnHome()
+        nextPage()
+        previousPage()
+    }
+
+    function ableReturnHome() {
+        const returnHome = document.querySelector('body')
+        returnHome.addEventListener('click', () => {
+            window.location = '../'
+        })
+    }
+
+    function nextPage() {
+        const nextPage = document.querySelector('.next')
+        nextPage.addEventListener('click', (e) => {
+            e.stopPropagation()
+            window.location = '../rotating-tree/index.html'
+        })
+    }
+
+    function previousPage() {
+        const previousPage = document.querySelector('.previous')
+        previousPage.addEventListener('click', (e) => {
+            e.stopPropagation()
+            window.location = '../swinging-tree'
+        })
+    }
+
+
+</script>
+
+
+<script src="./index.js"></script>
+
+</body>
+</html>

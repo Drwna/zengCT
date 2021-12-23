@@ -23,10 +23,9 @@ export function render() {
         toggleDivFast.classList.toggle("hide")
     }
 
-    // console.log(bgDiv)
-    const n = bgDiv.length
-
     function addEvent() {
+        const n = bgDiv.length
+        // console.log(bgDiv)
         for (let i = 0; i < n - 1; i++) {
             bgDiv[i].addEventListener('click', () => {
                 if (!myAudio.paused) {
@@ -60,13 +59,13 @@ export function render() {
     const nextPage = document.querySelector('.next')
     nextPage.addEventListener('click', (e) => {
         e.stopPropagation()
-        window.location = 'swinging-tree/index.html'
+        window.location = 'swinging-tree'
     })
 
     const previousPage = document.querySelector('.previous')
     previousPage.addEventListener('click', (e) => {
         e.stopPropagation()
-        window.location = 'rotating-tree/index.html'
+        window.location = 'rotating-tree'
     })
 
     const clearTime = document.querySelector('#clearTime')
@@ -76,10 +75,12 @@ export function render() {
 export function anotherTree(name) {
     if (name === 'spider man'
         || name === 'spiderman') {
-        window.location = 'rotating-tree/index.html'
+        window.location = 'rotating-tree'
     } else if (name === 'iron man'
         || name === 'ironman') {
-        window.location = 'swinging-tree/index.html'
+        window.location = 'swinging-tree'
+    } else if (name === '3') {
+        window.location = '../3d-tree'
     } else {
         guest()
     }
