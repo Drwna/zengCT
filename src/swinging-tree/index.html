@@ -20,11 +20,16 @@
         }
 
         .hide {
-            display: none;
+            visibility: hidden;
+        }
+
+        .enBox {
+            color: white;
+            position: absolute;
         }
 
         .enBox > p {
-            color: white;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -229,14 +234,15 @@
             const v = verify()
             if (v === 'iron man') {
                 swingingTreeRender()
+                hiddenGuest()
                 localStorage.setItem('setupTime', `${now}`)
             } else if (v === 'myPeople') {
                 console.log('我的人')
                 zeng()
                 swingingTreeRender()
-                previousPage()
-                nextPage()
-                ableReturnHome()
+                addListener()
+                hiddenGuest()
+                console.log('监听成功')
             }
         }
     }
@@ -256,8 +262,10 @@
         bd.addEventListener('click', () => {
             message.classList.toggle('hide')
         })
+    }
 
-        const en = document.querySelector('.enBox')
+    function hiddenGuest() {
+        const en = document.querySelector('#clickMe')
         en.classList.toggle('hide')
     }
 

@@ -39,7 +39,7 @@ body {
     justify-content: center;
     transform-style: preserve-3d;
     color: #ac8900;
-    text-shadow: 0px 0px 2px #fef1d9, 0px 0px 4px #fef1d9, 0px 0px 6px #fef1d9;
+    text-shadow: 0 0 2px #fef1d9, 0 0 4px #fef1d9, 0 0 6px #fef1d9;
     animation: starAnimate 1.5s ease-in-out infinite;
 }
 
@@ -90,7 +90,7 @@ body {
     transform-style: preserve-3d;
     font-size: 1rem;
     color: #ac8900;
-    text-shadow: 0px 0px 2px #fef1d9, 0px 0px 4px #fef1d9, 0px 0px 6px #fef1d9;
+    text-shadow: 0 0 2px #fef1d9, 0 0 4px #fef1d9, 0 0 6px #fef1d9;
     animation: starAnimate 0.3s ease-in-out infinite;
 }
 
