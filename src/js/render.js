@@ -92,7 +92,8 @@ export function clearTimeRecord() {
     window.location.reload()
 }
 
-export const hours = 0.05; // 3 minutes
+export const hours = 0.25; // 3 minutes
+// export const hours = 0.05; // test 3 minutes
 export const now = new Date().getTime();
 export const setupTime = localStorage.getItem('setupTime')
 export const p = localStorage.getItem('myPeople')
